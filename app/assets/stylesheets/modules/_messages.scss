@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0e8e4;
+  width: 100%;
+  height: 100vh;
+  .wrapper {
+    .header {
+      display: flex;
+      background-color: #97d1e4;
+      width: 100vw;
+      height: 65px;
+      padding: 0 250px;
+      line-height: 65px;
+      filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+      &__left {
+        width: 65%;
+        font-size: 30px;
+        color: #473838;
+      }
+      &__right {
+        width: 35%;
+        display: flex;
+        &--name {
+          margin-right: 30px;
+          color: #473838;
+        }
+        &--button {
+          text-decoration: none;
+          color: #473838;
+        }
+      }
+    }
+
+    .main {
+      padding: 30px 250px 0;
+      &__contents {
+        filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+        background-color: #fff;
+        height: 300px;
+        padding: 10px;
+        overflow: scroll;
+        margin: 0 auto;
+        &__content {
+          width: 80%;
+          height: 70px;
+          margin: 0 auto 10px;
+          border: solid 1px #f6f6f6;
+          display: flex;
+          position: relative;
+          &__text {
+            margin: 0 10px;
+            width: 80%;
+            line-height: 70px;
+            color: #473838;
+          }
+          &__rightBox {
+            font-size: 10px;
+            color: #473838;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+          }
+        }
+      }
+    }
+    .form {
+      margin: 30px auto;
+      padding: 10px;
+      filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+      background-color: #fff;
+      &__box {
+        margin: 0 auto;
+        width: 80%;
+        &__text {
+          width: 100%;
+          height: 80px;
+          resize: none;
+        }
+        &__submit {
+          margin: 10px auto 0;
+          display: block;
+          padding: 1px 6px;
+        }
+      }
+    }
+  }
+  .footer {
+    height: 50px;
+    text-align: center;
+    padding-top: 5px;
+    color: #473838;
+  }
+}
