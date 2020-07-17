@@ -1,17 +1,20 @@
 .main
   .main__contents
     .main__contents__content
-      .main__contents__content__text
-        text
-      .main__contents__content__rightBox
-        .main__contents__content__rightBox__name
-          name
-        .main__contents__content__rightBox__date
-          2020/07/14 15:40
-  .form
-    = form_with url: "#", html:{class: "form__message"} do |form|
-      %div.form__box
-        = form.text_area :text, placeholder: '文字を入力（25文字以内）', class: "form__box__text" 
-        = form.submit '投稿する', class: "form__box__submit", value: '投稿する'
+      - @messages.each do |message|
+        .main__contents__content__text
+          = message.text
+        .main__contents__content__rightBox
+          .main__contents__content__rightBox__name
+            = message.user_id
+          .main__contents__content__rightBox__date
+            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  - if user_signed_in? && current_user.id == message.user_id 
+    .form
+      = form_with model: @message, html: {class: "form__message"}, local: true, method: :create do |form|
+        %div.form__box
+          = form.text_area :text, placeholder: '文字を入力（25文字以内）', class: "form__box__text"
+          = form.submit '投稿する', class: "form__box__submit", value: '投稿する'
+  - else
   .footer
     Homework App 2019

@@ -1,7 +1,15 @@
 .header
-  .header__left
-    Homework App
-  .header__right
-    .header__right--name
-      test
-    = link_to 'ログアウト', "#", class:"header__right--button"
+  - if user_signed_in?
+    .header__left
+      Homework App
+    .header__right
+      .header__right--name
+        = current_user.name
+      = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"header__right--button" 
+  - else
+    .header__left
+      Homework App
+    .header__right
+      .header__right--name
+      = link_to '新規登録', new_user_registration_path, method: :post, class:"header__right--name" 
+      = link_to 'ログイン', new_user_session_path, method: :post, class:"header__right--button" 
